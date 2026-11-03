@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Telemetry // Next-Gen AI Observability & Tracing Platform</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Light Mesh Background -->
+  <div class="aurora-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="#" class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="brand-title">Aurora<span>Telemetry</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#sandbox">Live Telemetry</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="https://github.com" target="_blank">Docs</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-ghost">Sign In</button>
+        <a href="#pricing" class="btn-glow">Deploy Free &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <span class="pill-dot"></span>
+        <span>Aurora v3.4 Telemetry Engine Released // OpenTelemetry Native</span>
+      </div>
+
+      <h1 class="hero-title">
+        High-Velocity Observability for <span class="text-gradient">Production AI & Agents</span>
+      </h1>
+
+      <p class="hero-desc">
+        Sub-millisecond distributed tracing, token burn flamegraphs, and automated hallucination guardrails. Built for modern LLM stacks running millions of inferences daily.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#pricing" class="btn-glow" style="padding: 0.85rem 1.8rem; font-size: 0.95rem;">
+          Start Free Sandbox (1M Traces) &rarr;
+        </a>
+        <button class="btn-ghost" id="trigger-ping-btn" style="padding: 0.85rem 1.5rem; font-size: 0.95rem;">
+          Simulate Trace Ping
+        </button>
+      </div>
+
+      <!-- Telemetry Live HUD Sandbox -->
+      <div class="telemetry-sandbox" id="sandbox">
+        <div class="sandbox-header">
+          <div class="window-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #94A3B8;">
+            CLUSTER: US-EAST-VIRGINIA // EDGE RUNTIME ACTIVE
+          </div>
+          <div style="font-size: 0.78rem; color: #34D399; font-weight: 600; display:flex; align-items:center; gap: 5px;">
+            <span class="pill-dot"></span> STREAM LIVE
+          </div>
+        </div>
+
+        <div class="sandbox-stream">
+          <div class="stream-card">
+            <div class="stream-label">Throughput</div>
+            <div class="stream-val emerald" id="stream-rps">14,820 req/s</div>
+          </div>
+          <div class="stream-card">
+            <div class="stream-label">P99 Gateway Latency</div>
+            <div class="stream-val cyan" id="stream-p99">18.4 ms</div>
+          </div>
+          <div class="stream-card">
+            <div class="stream-label">Token Ingestion</div>
+            <div class="stream-val purple" id="stream-tokens">4.82M / hr</div>
+          </div>
+          <div class="stream-card">
+            <div class="stream-label">Inference Cost / 1k</div>
+            <div class="stream-val" id="stream-cost">$0.0014 / k</div>
+          </div>
+        </div>
+
+        <div class="stream-log" id="stream-latest-span">
+          <span>[TRACE] POST /v1/chat/completions (model: claude-3-5-sonnet, tokens: 1,420)</span>
+          <span style="color: #34D399;">✓ 200 OK (16ms)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Logos -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-title">Integrated seamlessly across modern enterprise stacks</div>
+      <div class="trust-logos">
+        <span class="trust-logo-item">◈ OpenTelemetry</span>
+        <span class="trust-logo-item">▲ Vercel Edge</span>
+        <span class="trust-logo-item">⚡ FastAPI</span>
+        <span class="trust-logo-item">⌘ Hugging Face</span>
+        <span class="trust-logo-item">✦ LangChain</span>
+        <span class="trust-logo-item">❖ Pinecone</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento Grid Features -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Engineering Capabilities</span>
+        <h2 class="sec-title">Architected for Zero-Overhead Telemetry</h2>
+        <p class="sec-desc">
+          Stop flying blind in non-deterministic AI agent pipelines. Aurora monitors every prompt token, memory graph query, and vector lookup with nanosecond precision.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Bento 1: Multi-span 2 col -->
+        <div class="bento-card col-2">
+          <div class="bento-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h7"/>
+            </svg>
+          </div>
+          <h3>Full-Trace Flamegraphs with Token Cost Attribution</h3>
+          <p>
+            Break down multi-agent handoffs into microsecond waterfall trees. Pinpoint exactly which system prompt, vector recall, or tool execution introduced downstream hallucinations or lag.
+          </p>
+          <div class="bento-preview-box">
+            <div class="flamegraph-row">
+              <span style="width: 140px; color: #94A3B8;">agent_routing</span>
+              <div class="flame-bar" style="width: 25%; background: #6366F1;"></div>
+              <span style="color: #818CF8;">12ms</span>
+            </div>
+            <div class="flamegraph-row">
+              <span style="width: 140px; color: #94A3B8;">vector_search</span>
+              <div class="flame-bar" style="width: 45%; background: #06B6D4;"></div>
+              <span style="color: #38BDF8;">28ms</span>
+            </div>
+            <div class="flamegraph-row">
+              <span style="width: 140px; color: #94A3B8;">llm_inference</span>
+              <div class="flame-bar" style="width: 75%; background: #10B981;"></div>
+              <span style="color: #34D399;">92ms</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2 -->
+        <div class="bento-card">
+          <div class="bento-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Real-Time Prompt Injection Firewall</h3>
+          <p>
+            Inline vector sanitization and toxic input filtering executing at the edge in less than 3 milliseconds without roundtrips.
+          </p>
+          <div class="bento-preview-box" style="color: #34D399;">
+            ✓ 0 vulnerabilities detected in last 24h
+          </div>
+        </div>
+
+        <!-- Bento 3 -->
+        <div class="bento-card">
+          <div class="bento-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Cost Optimization Guardrails</h3>
+          <p>
+            Automated semantic cache routes repeated queries away from LLM inference, reducing monthly API bills by up to 47%.
+          </p>
+          <div class="bento-preview-box" style="color: #FBBF24;">
+            43.8% Cache Hit Ratio // $1,840 Saved this week
+          </div>
+        </div>
+
+        <!-- Bento 4: Multi-span 2 col -->
+        <div class="bento-card col-2">
+          <div class="bento-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <h3>Zero-Configuration Python & TypeScript SDK</h3>
+          <p>
+            Two lines of code to instrument LangChain, LlamaIndex, OpenAI, Anthropic, or raw HTTP endpoints with standard OpenTelemetry collectors.
+          </p>
+          <div class="bento-preview-box" style="color: #E2E8F0;">
+            <code>from aurora_telemetry import trace_llm<br>@trace_llm(sample_rate=1.0, capture_tokens=True)</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Predictable Pricing</span>
+        <h2 class="sec-title">Transparent Tiering for Growing Teams</h2>
+        <p class="sec-desc">
+          No surprise burst fees or sudden throughput caps. Scale as your telemetry data grows.
+        </p>
+      </div>
+
+      <!-- Pricing Toggle -->
+      <div class="pricing-toggle-wrap">
+        <span style="font-size: 0.95rem; font-weight: 600; color: #CBD5E1;">Monthly</span>
+        <div class="toggle-switch" id="pricing-toggle">
+          <div class="toggle-knob"></div>
+        </div>
+        <span style="font-size: 0.95rem; font-weight: 600; color: #CBD5E1;">Annual</span>
+        <span class="save-pill">SAVE 20%</span>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="pricing-grid">
+        <!-- Starter Card -->
+        <div class="pricing-card">
+          <div class="plan-name">Developer</div>
+          <div class="plan-desc">For indie hackers and early stage prototypes instrumenting their first models.</div>
+          <div class="plan-price" id="price-starter">$29</div>
+          <div class="plan-billing billing-period">/ month (billed monthly)</div>
+
+          <ul class="plan-features">
+            <li><span class="chk">✓</span> Up to 2,000,000 spans / month</li>
+            <li><span class="chk">✓</span> 7-day trace retention</li>
+            <li><span class="chk">✓</span> OpenTelemetry Collector</li>
+            <li><span class="chk">✓</span> Community Discord Support</li>
+          </ul>
+
+          <button class="btn-ghost" style="width: 100%; justify-content: center;">Start Developer Free &rarr;</button>
+        </div>
+
+        <!-- Scale Card (Featured) -->
+        <div class="pricing-card featured">
+          <span class="popular-badge">Most Popular</span>
+          <div class="plan-name">Scale Team</div>
+          <div class="plan-desc">For production startups operating live agent systems and user-facing chatbots.</div>
+          <div class="plan-price" id="price-scale" style="color: #38BDF8;">$89</div>
+          <div class="plan-billing billing-period">/ month (billed monthly)</div>
+
+          <ul class="plan-features">
+            <li><span class="chk">✓</span> Up to 25,000,000 spans / month</li>
+            <li><span class="chk">✓</span> 30-day high-resolution retention</li>
+            <li><span class="chk">✓</span> Semantic Prompt Caching</li>
+            <li><span class="chk">✓</span> Real-Time Anomaly Webhooks</li>
+            <li><span class="chk">✓</span> Multi-user RBAC & SSO</li>
+          </ul>
+
+          <button class="btn-glow" style="width: 100%; justify-content: center;">Deploy Scale Cluster &rarr;</button>
+        </div>
+
+        <!-- Enterprise Card -->
+        <div class="pricing-card">
+          <div class="plan-name">Enterprise</div>
+          <div class="plan-desc">Custom VPC deployments, HIPAA compliance, and Dedicated VPC ingest clusters.</div>
+          <div class="plan-price">Custom</div>
+          <div class="plan-billing">Dedicated SLA & On-Prem Options</div>
+
+          <ul class="plan-features">
+            <li><span class="chk">✓</span> Unlimited trace volume</li>
+            <li><span class="chk">✓</span> 365-day cold archive storage</li>
+            <li><span class="chk">✓</span> SOC2 Type II & HIPAA BAA</li>
+            <li><span class="chk">✓</span> Dedicated Customer Engineer</li>
+          </ul>
+
+          <button class="btn-ghost" style="width: 100%; justify-content: center;">Talk to Solutions Architect &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-badge">Questions & Answers</span>
+        <h2 class="sec-title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="accordion-wrap">
+        <div class="faq-item active">
+          <div class="faq-header">
+            <span>What overhead does the Aurora SDK add to our model inference?</span>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-body">
+            The Aurora SDK transmits spans via asynchronous background workers using HTTP/2 batching. Benchmark overhead is strictly sub-millisecond (&lt;0.4ms) and will never block or introduce latency to user-facing responses.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Is sensitive user data or API keys encrypted during ingestion?</span>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-body">
+            Yes. Aurora features automated local masking: regex and NER rules detect PII (emails, credit cards, SSNs, API tokens) before payloads leave your infrastructure. All data in transit is encrypted via TLS 1.3, and data at rest is encrypted via AES-256-GCM.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>Can we self-host Aurora on our own Kubernetes cluster?</span>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-body">
+            Enterprise tier customers receive full Helm charts and Terraform recipes to deploy Aurora in their private AWS, GCP, or Azure VPC, ensuring complete data sovereignty.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <span>How does the semantic prompt caching work?</span>
+            <span class="faq-chevron">▼</span>
+          </div>
+          <div class="faq-body">
+            Incoming prompt embeddings are compared against a low-latency vector cache using cosine similarity thresholds. Identical or near-identical prompts are served directly from cache without hitting downstream LLM provider APIs.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom: 1rem;">
+          <div class="brand-icon" style="width:28px; height:28px;">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px; height:16px;">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span style="font-weight:700; color:#fff;">Aurora Telemetry</span>
+        </div>
+        <p style="color: var(--text-dim); font-size: 0.85rem; line-height: 1.6; max-width: 320px;">
+          Next-generation observability, real-time tracing, and automated guardrails for production artificial intelligence.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Distributed Tracing</a></li>
+          <li><a href="#features">Flamegraphs</a></li>
+          <li><a href="#features">Prompt Cache</a></li>
+          <li><a href="#pricing">Pricing Plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Integrations</h4>
+        <ul>
+          <li><a href="#sandbox">OpenTelemetry Collector</a></li>
+          <li><a href="#sandbox">LangChain / LangGraph</a></li>
+          <li><a href="#sandbox">LlamaIndex Native</a></li>
+          <li><a href="#sandbox">FastAPI Middleware</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Security & Legal</h4>
+        <ul>
+          <li><a href="#faq">Privacy Policy</a></li>
+          <li><a href="#faq">Terms of Service</a></li>
+          <li><a href="#faq">SOC2 Type II Report</a></li>
+          <li><a href="#faq">Security Whitepaper</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Aurora Telemetry Inc. All rights reserved.</div>
+      <div>Telemetry Engine v3.4.1 — Global Edge Grid Active</div>
+    </div>
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>
